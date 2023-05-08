@@ -1,5 +1,8 @@
 package br.com.kbmg.financialcontrol.model;
 
+import br.com.kbmg.financialcontrol.repository.converter.YearMonthDateAttributeConverter;
+import jakarta.persistence.Column;
+import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.JoinColumn;
@@ -13,6 +16,8 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.Objects;
 
 @Entity
@@ -25,6 +30,13 @@ public class Salary extends AbstractEntity{
 
     @NotNull
     private BigDecimal salaryValue;
+
+    private LocalDate receivedDate;
+
+    @Column(columnDefinition = "varchar(7)")
+    @Convert(converter = YearMonthDateAttributeConverter.class)
+    @NotNull
+    private YearMonth yearMonth;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)

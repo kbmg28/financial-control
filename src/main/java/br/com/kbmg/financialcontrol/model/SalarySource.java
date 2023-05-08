@@ -32,7 +32,7 @@ public class SalarySource extends AbstractEntity{
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @OneToMany(mappedBy = "salarySource", fetch = FetchType.LAZY)
-    private Set<Salary> spaceUserAppAssociationList = new HashSet<>();
+    private Set<Salary> salaryList = new HashSet<>();
 
     @Override
     public boolean equals(Object o) {
