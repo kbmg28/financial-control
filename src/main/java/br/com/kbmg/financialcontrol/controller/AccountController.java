@@ -1,6 +1,6 @@
 package br.com.kbmg.financialcontrol.controller;
 
-import br.com.kbmg.financialcontrol.AccountService;
+import br.com.kbmg.financialcontrol.service.AccountService;
 import br.com.kbmg.financialcontrol.dto.AccountDto;
 import br.com.kbmg.financialcontrol.mapper.AccountMapper;
 import br.com.kbmg.financialcontrol.model.Account;

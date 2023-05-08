@@ -1,4 +1,4 @@
-package br.com.kbmg.financialcontrol;
+package br.com.kbmg.financialcontrol.service;
 
 import br.com.kbmg.financialcontrol.model.Account;
 import br.com.kbmg.financialcontrol.repository.AccountRepository;
