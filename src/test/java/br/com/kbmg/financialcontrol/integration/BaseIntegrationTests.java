@@ -1,5 +1,6 @@
 package br.com.kbmg.financialcontrol.integration;
 
+import br.com.kbmg.financialcontrol.config.AppConfig;
 import com.google.gson.Gson;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -8,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
@@ -23,6 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
         "spring.datasource.url=jdbc:h2:file:~/financial-control-JUNIT",
         "spring.jpa.hibernate.ddl-auto=create-drop"
 })
+@ContextConfiguration(classes = { AppConfig.class })
 @AutoConfigureMockMvc
 @Transactional
 public abstract class BaseIntegrationTests {
