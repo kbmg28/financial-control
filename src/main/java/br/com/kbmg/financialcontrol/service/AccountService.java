@@ -10,6 +10,9 @@ public record AccountService(AccountRepository accountRepository) {
     public Account saveAccount(Account account) {
         return accountRepository.save(account);
     }
+    public Account findById(Long id) {
+        return accountRepository.findById(id).orElseThrow();
+    }
 
     public Account getAccountByEmail(String email) {
         return accountRepository.findByEmail(email).orElse(null);
