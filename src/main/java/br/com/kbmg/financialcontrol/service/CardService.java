@@ -1,5 +1,6 @@
 package br.com.kbmg.financialcontrol.service;
 
+import br.com.kbmg.financialcontrol.exceptions.FinancialControlException;
 import br.com.kbmg.financialcontrol.model.Account;
 import br.com.kbmg.financialcontrol.model.Card;
 import br.com.kbmg.financialcontrol.repository.CardRepository;
@@ -18,4 +19,7 @@ public record CardService(CardRepository cardRepository) {
         return cardRepository.findByAccount(account);
     }
 
+    public Card findById(Long id) {
+        return cardRepository.findById(id).orElseThrow(() -> new FinancialControlException("card.not.found"));
+    }
 }
