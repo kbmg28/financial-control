@@ -12,6 +12,7 @@ import lombok.ToString;
 import org.hibernate.Hibernate;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import java.util.Objects;
 
@@ -27,10 +28,11 @@ public class Expense extends AbstractEntity {
     private Integer installment;
 
     @NotNull
-    private OffsetDateTime expirationDate;
+    private LocalDate expirationDate;
 
     private OffsetDateTime paymentDate;
 
+    private BigDecimal valuePaid;
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
@@ -42,6 +44,11 @@ public class Expense extends AbstractEntity {
     @JoinColumn(nullable = false)
     @ToString.Exclude
     private Purchase purchase;
+
+    public Expense(Account account, Purchase purchase) {
+        this.account = account;
+        this.purchase = purchase;
+    }
 
     @Override
     public boolean equals(Object o) {

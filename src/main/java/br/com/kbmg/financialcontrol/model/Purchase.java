@@ -30,7 +30,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class Purchase extends AbstractEntity{
+public class Purchase extends AbstractEntity {
 
     @NotNull
     @Enumerated(EnumType.STRING)
@@ -42,7 +42,6 @@ public class Purchase extends AbstractEntity{
     @NotNull
     private OffsetDateTime dateOfPurchase;
 
-    @NotNull
     private Integer installments;
 
     @NotBlank
