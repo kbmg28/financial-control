@@ -27,10 +27,7 @@ public class CardController {
 
     @GetMapping("/{email}")
     public ResponseEntity<List<CardDto>> findByAccount(@PathVariable String email) {
-        var account = accountService.getAccountByEmail(email);
-        if (account == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        var account = accountService.findByEmailValidated(email);
         var cards = cardService.findByAccount(account);
         var cardDtoList = CardMapper.INSTANCE.toCardDtoList(cards);
         return new ResponseEntity<>(cardDtoList, HttpStatus.OK);

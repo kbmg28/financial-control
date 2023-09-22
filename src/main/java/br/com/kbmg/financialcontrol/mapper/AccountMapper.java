@@ -1,6 +1,7 @@
 package br.com.kbmg.financialcontrol.mapper;
 
 import br.com.kbmg.financialcontrol.dto.AccountDto;
+import br.com.kbmg.financialcontrol.dto.SignUpDto;
 import br.com.kbmg.financialcontrol.model.Account;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -17,5 +18,5 @@ public interface AccountMapper {
     @Mapping(target = "salaryList", ignore = true)
     @Mapping(target = "purchaseList", ignore = true)
     @Mapping(target = "expenseList", ignore = true)
-    Account toEntity(AccountDto accountDto);
+    Account toNewAccount(SignUpDto signUpDto);
 }

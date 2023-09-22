@@ -23,13 +23,17 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class Account extends AbstractEntity{
+public class Account extends AbstractEntity {
 
+    @NotBlank
     private String name;
 
     @NotBlank
     @Column(unique = true)
     private String email;
+
+    @NotBlank
+    private String password;
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
